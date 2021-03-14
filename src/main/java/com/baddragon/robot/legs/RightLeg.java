@@ -11,7 +11,7 @@ public class RightLeg extends Thread {
             if (name != null && name.isEmpty()) {
                 Robot.nextLegSteps = "right";
             }
-            synchronized (Robot.nextLegSteps) {
+            synchronized (Robot.monitor) {
                 if (name.equals("right")) {
                     System.out.println("Right foot step");
                     Robot.nextLegSteps = "left";

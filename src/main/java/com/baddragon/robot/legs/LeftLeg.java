@@ -8,7 +8,7 @@ public class LeftLeg implements Runnable {
     @Override
     public void run() {
         for (int index = 0; index < 10; index++) {
-            synchronized (Robot.nextLegSteps) {
+            synchronized (Robot.monitor) {
                 String name = Robot.nextLegSteps;
                 if (name != null && name.isEmpty()) {
                     Robot.nextLegSteps = "left";
