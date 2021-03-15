@@ -11,11 +11,10 @@ public class Main {
     public static void main(String[] args) {
 
         Factory factory = new ShapeFactory();
-        List<Shape> shapes =  factory.getShapeList();
-
+        List<Shape> shapes = factory.getShapeList();
         Shape maxShape = shapes.get(0);
-        for (Shape shape: shapes) {
-            if(maxShape.getArea() < shape.getArea()){
+        for (Shape shape : shapes) {
+            if (maxShape.getArea() < shape.getArea()) {
                 maxShape = shape;
             }
         }
@@ -23,10 +22,5 @@ public class Main {
         System.out.println("max shape");
         System.out.println(maxShape);
 
-
     }
-
-
-
-
 }

@@ -39,7 +39,10 @@ public class ShapeFactory implements Factory {
     public List<Shape> getShapeList() {
         List<Shape> shapes = new ArrayList<>();
 
-        while (shapes.size() != 3) {
+        while (shapes.size() != 10) {
+            Shape shape = getNextShape();
+            if (shape == null) continue;
+
             shapes.add(getNextShape());
         }
 
