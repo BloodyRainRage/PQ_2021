@@ -41,7 +41,9 @@ public class ShapeFactory implements Factory {
 
         while (shapes.size() != 10) {
             Shape shape = getNextShape();
-            if (shape == null) continue;
+            if (shape == null) {
+                continue;
+            }
 
             shapes.add(getNextShape());
         }
