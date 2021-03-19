@@ -23,10 +23,15 @@ public class PicProcessor {
         Document doc = null;
         String url = "https://www.furaffinity.net/gallery/foxkin/";
 
-        ThreadPageHandler pageHandler = new ThreadPageHandler();
-        pageHandler.setUrl("https://pkg.go.dev/");
+//        ThreadPageHandler pageHandler = new ThreadPageHandler();
+//        pageHandler.setUrl("https://pkg.go.dev/");
 //        pageHandler.setUrl("https://wallhaven.cc/");
-        pageHandler.start();
+
+        Pool pool = new Pool();
+        pool.pushLink("https://wallhaven.cc/");
+        pool.pushLink("https://pkg.go.dev/");
+
+//        pageHandler.start();
        // links = pageHandler.getLinks();
 
         //while (true);
