@@ -1,13 +1,13 @@
 package com.baddragon.processor.pool;
 
-import com.baddragon.processor.logger.Log;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
@@ -25,7 +25,6 @@ public class JsoupPool implements Pool {
     static final String responseMonitor = "";
     static final Set<String> imageNames = new HashSet<>();
 
-    static final Log log = new Log();
 
     @Override
     public void pushLink(String url) {
