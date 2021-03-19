@@ -25,10 +25,11 @@ public class PicProcessor {
 
         ThreadPageHandler pageHandler = new ThreadPageHandler();
         pageHandler.setUrl("https://pkg.go.dev/");
+//        pageHandler.setUrl("https://wallhaven.cc/");
         pageHandler.start();
        // links = pageHandler.getLinks();
 
-        while (true);
+        //while (true);
 
 
 
