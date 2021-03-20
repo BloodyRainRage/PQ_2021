@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Field;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Properties;
@@ -24,6 +23,8 @@ public class HttpPool implements Pool {
     ExecutorService executorService = Executors.newFixedThreadPool(100);
 
     private String folderName;
+
+    long minFileSize;
 
     @Override
     public void pushLink(String url) {
@@ -50,6 +51,12 @@ public class HttpPool implements Pool {
                 }
             } else {
                 folderName = "temp/";
+            }
+
+            this.minFileSize = Long.parseLong(properties.getProperty("pool.filesize"));
+
+            if (minFileSize == 0) {
+                minFileSize = 20;
             }
 
             File file = new File(folderName);
@@ -129,6 +136,10 @@ public class HttpPool implements Pool {
     }
 
     protected void writeImage(byte[] bytes, String fileName) {
+        long fileSize  = bytes.length / 1024;
+        if (fileSize < minFileSize) {
+            return;
+        }
         try {
             FileOutputStream fileOut = new FileOutputStream(
                     new File(this.folderName + fileName)
