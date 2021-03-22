@@ -14,11 +14,11 @@ public class Triangle implements Shape{
         Random random = new Random();
         edge = random.doubles(-10, 10)
                 .findFirst().getAsDouble();
+        area = (edge*edge * Math.sqrt(3))/4;
     }
 
     @Override
     public double getArea() {
-        area = (edge*edge * Math.sqrt(3))/4;
         return area;
     }
 
